@@ -46,28 +46,28 @@ Core priorities:
 
 # Architecture Overview
 
-## 1️⃣ Streamlit Frontend
+## Streamlit Frontend
 
 -   Wide layout
 -   Custom CSS-styled futuristic theme
 -   Sidebar-based modular navigation
 -   Session-based state management
 
-## 2️⃣ Data Layer
+## Data Layer
 
 -   `deque` for bounded telemetry history
 -   Queue-based MQTT ingestion
 -   Cached API calls
 -   Controlled re-rendering
 
-## 3️⃣ Real-Time Engine
+## Real-Time Engine
 
 -   Auto simulation mode
 -   RT-Linux-inspired 1ms latency simulation
 -   Controlled reruns
 -   Battery + thermal modeling
 
-## 4️⃣ Integration Layer
+## Integration Layer
 
 -   MQTT Broker (localhost)
 -   OpenWeather API
