@@ -4,11 +4,11 @@
 
 ### IIT Madras \| Avishkar Hyperloop Team
 
-**Solo Project -- GUI Subsystem Application**
+** GUI Subsystem Application**
 
 ------------------------------------------------------------------------
 
-## 🔥 Project Overview
+##  Project Overview
 
 This project is a high-performance real-time monitoring dashboard built
 for the Avishkar Hyperloop GUI Subsystem.
@@ -16,82 +16,76 @@ for the Avishkar Hyperloop GUI Subsystem.
 It simulates a futuristic Hyperloop Control Center (Year 2035) capable
 of:
 
--   Real-time telemetry visualization\
--   Pod tracking and geolocation mapping\
--   Weather-aware operational decisions\
--   Maintenance logging\
--   MQTT live telemetry streaming\
--   Role-based authentication\
+-   Real-time telemetry visualization
+-   Pod tracking and geolocation mapping
+-   Weather-aware operational decisions
+-   Maintenance logging
+-   MQTT live telemetry streaming
 -   Performance analytics
 
-This is not just a UI.\
 It is a systems-oriented control interface designed with engineering
 trade-offs in mind --- prioritizing:
 
--   ⚡ Speed\
--   🧠 Efficient data structures\
--   🔄 Real-time responsiveness\
--   🛠 Modular architecture\
--   🎯 Zero-lag interaction philosophy
+-    Speed
+-    Efficient data structures
+-    Real-time responsiveness
+-    Modular architecture
 
 ------------------------------------------------------------------------
 
-# 🧠 Design Philosophy
-
-> Speed first. No lag. No unnecessary computation. No bloated state.
-
 Core priorities:
 
--   Real-time responsiveness\
--   Efficient memory usage\
--   Clean modular design\
--   Hardware-communication readiness (MQTT)\
--   Asynchronous-safe data handling\
+-   Real-time responsiveness
+-   Efficient memory usage
+-   Clean modular design
+-   Hardware-communication readiness (MQTT)
+-   Asynchronous-safe data handling
 -   Professional UI aesthetics
 
 ------------------------------------------------------------------------
 
-# 🏗 Architecture Overview
+#  Architecture Overview
 
 ## 1️⃣ Streamlit Frontend
 
--   Wide layout\
--   Custom CSS-styled futuristic theme\
--   Sidebar-based modular navigation\
+-   Wide layout
+-   Custom CSS-styled futuristic theme
+-   Sidebar-based modular navigation
 -   Session-based state management
 
 ## 2️⃣ Data Layer
 
--   `deque` for bounded telemetry history\
--   Queue-based MQTT ingestion\
--   Cached API calls\
+-   `deque` for bounded telemetry history
+-   Queue-based MQTT ingestion
+-   Cached API calls
 -   Controlled re-rendering
 
 ## 3️⃣ Real-Time Engine
 
--   Auto simulation mode\
--   RT-Linux-inspired 1ms latency simulation\
--   Controlled reruns\
+-   Auto simulation mode
+-   RT-Linux-inspired 1ms latency simulation
+-   Controlled reruns
 -   Battery + thermal modeling
 
 ## 4️⃣ Integration Layer
 
--   MQTT Broker (localhost)\
--   OpenWeather API\
--   CSV Logging\
+-   MQTT Broker (localhost)
+-   OpenWeather API
+-   Useless Facts REST API
+-   CSV Logging
 -   Folium Geospatial Mapping
 
 ------------------------------------------------------------------------
 
-# ⚡ Performance Engineering Decisions
+#  Performance Engineering 
 
-## 🚀 Efficient Data Structures
+##  Efficient Data Structures
 
 Telemetry history uses:
 
--   `collections.deque(maxlen=50)`\
--   O(1) append operations\
--   Automatic memory bounding\
+-   `collections.deque(maxlen=50)`
+-   O(1) append operations
+-   Automatic memory bounding
 -   Prevents uncontrolled memory growth
 
 Using deque instead of list avoids O(n) shifting operations and ensures
@@ -99,46 +93,46 @@ stable real-time performance.
 
 ------------------------------------------------------------------------
 
-## 🔄 Smart State Management
+## State Management
 
 `st.session_state` ensures:
 
--   No unnecessary re-initialization\
--   Stable simulation continuity\
--   Controlled UI refresh behavior\
+-   No unnecessary re-initialization
+-   Stable simulation continuity
+-   Controlled UI refresh behavior
 -   Persistent MQTT client and logs
 
 ------------------------------------------------------------------------
 
-## 📡 MQTT Integration
+##  MQTT Integration
 
--   `paho-mqtt` client\
--   Background threaded loop\
+-   `paho-mqtt` client
+-   Background threaded loop
 -   Thread-safe `queue.Queue()` ingestion
 
 This architecture is scalable to real hardware telemetry systems.
 
 ------------------------------------------------------------------------
 
-## 🌦 Cached API Calls
+##  Cached API Calls
 
--   `@st.cache_data(ttl=300)` for weather\
--   Prevents rate-limiting\
--   Reduces network overhead\
+-   `@st.cache_data(ttl=300)` for weather
+-   Prevents rate-limiting
+-   Reduces network overhead
 -   Improves responsiveness
 
 ------------------------------------------------------------------------
 
-## 🗺 Geospatial Visualization
+##  Geospatial Visualization
 
--   Folium-based dark themed map\
--   Dynamic color-coded markers\
--   Live coordinate updates\
+-   Folium-based dark themed map
+-   Dynamic color-coded markers
+-   Live coordinate updates
 -   Battery-aware simulation
 
 ------------------------------------------------------------------------
 
-# 📊 Feature Modules
+#  Feature Modules
 
 ## Overview
 
@@ -146,23 +140,23 @@ System introduction and navigation.
 
 ## Pod Tracker
 
--   Dataframe filtering\
+-   Dataframe filtering
 -   Operational status tracking
 
 ## Performance Metrics
 
--   Speed\
--   Acceleration\
--   Temperature\
--   Battery\
--   Pressure\
--   Real-time trend graphs\
--   CSV logging\
+-   Speed
+-   Acceleration
+-   Temperature
+-   Battery
+-   Pressure
+-   Real-time trend graphs
+-   CSV logging
 -   Reset functionality
 
 ## Weather Monitoring
 
--   Live OpenWeather API integration\
+-   Live OpenWeather API integration
 -   Dynamic speed recommendations
 
 ## Pod Comparison
@@ -171,7 +165,7 @@ System introduction and navigation.
 
 ## Live Track Map
 
--   City-based pod initialization\
+-   City-based pod initialization
 -   Real-time movement simulation
 
 ## System Alerts
@@ -181,8 +175,8 @@ System introduction and navigation.
 
 ## Maintenance Logs
 
--   Engineer issue logging\
--   Severity tagging\
+-   Engineer issue logging
+-   Severity tagging
 -   Structured tabular view
 
 ## MQTT Live Data
@@ -193,22 +187,7 @@ System introduction and navigation.
 
 ------------------------------------------------------------------------
 
-# 📂 Technologies Used
-
--   Python\
--   Streamlit\
--   Pandas\
--   NumPy\
--   Folium\
--   Paho-MQTT\
--   dotenv\
--   Queue\
--   Deque\
--   OpenWeather API
-
-------------------------------------------------------------------------
-
-# 🛠 Setup Instructions
+#  Setup Instructions
 
 ``` bash
 pip install streamlit pandas numpy requests folium streamlit-folium paho-mqtt python-dotenv streamlit-autorefresh
@@ -217,7 +196,6 @@ pip install streamlit pandas numpy requests folium streamlit-folium paho-mqtt py
 Create `.env`:
 
     api_key=YOUR_OPENWEATHER_API_KEY
-    USERS_JSON={...}
 
 Run:
 
@@ -225,33 +203,35 @@ Run:
 streamlit run app.py
 ```
 
-(Optional) Run local MQTT broker on localhost:1883
-
 ------------------------------------------------------------------------
 
-# 🚀 Future Improvements
+#  Future Improvements
 
--   Database-backed logging\
--   Hashed authentication\
--   Async MQTT architecture\
--   Predictive failure analytics\
+-   Database-backed logging
+-   Hashed authentication
+-   Async MQTT architecture
+-   Predictive failure analytics
 -   Deployment containerization
 
 ------------------------------------------------------------------------
 
 # 👤 Author
 
-Avishkar Hyperloop -- GUI Subsystem Application\
-IIT Madras
+Dhanabala Murugan M
+CH25B033
 
 This project demonstrates:
 
--   Systems-level thinking\
--   Performance-aware architecture\
--   Real-time dashboard engineering\
--   Hardware communication readiness\
+-   Systems-level thinking
+-   Performance-aware architecture
+-   Real-time dashboard engineering
+-   Hardware communication readiness
 -   Clean modular Python design
 
 ------------------------------------------------------------------------
+
+##PS
+
+-The user details were not added to the .env file to give access details to the tester
 
 Generated on: 2026-02-16 17:02:16
