@@ -231,5 +231,5 @@ This project demonstrates:
 ------------------------------------------------------------------------
 ## Authentication Note
 
-User credentials are intentionally excluded from the repository for security reasons.  
-Test credentials can be shared separately if required.
+For demonstration purposes and ease of testing the source code , user credentials are currently defined directly within the application code.
+In a production deployment, credentials would be securely stored using environment variables and hashed authentication mechanisms.
