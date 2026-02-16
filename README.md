@@ -4,11 +4,11 @@
 
 ### IIT Madras \| Avishkar Hyperloop Team
 
-** GUI Subsystem Application**
+**GUI Subsystem Control Interface**
 
 ------------------------------------------------------------------------
 
-##  Project Overview
+## Project Overview
 
 This project is a high-performance real-time monitoring dashboard built
 for the Avishkar Hyperloop GUI Subsystem.
@@ -24,7 +24,7 @@ of:
 -   Performance analytics
 
 It is a systems-oriented control interface designed with engineering
-trade-offs in mind --- prioritizing:
+trade-offs in mind prioritizing:
 
 -    Speed
 -    Efficient data structures
@@ -44,7 +44,7 @@ Core priorities:
 
 ------------------------------------------------------------------------
 
-#  Architecture Overview
+# Architecture Overview
 
 ## 1️⃣ Streamlit Frontend
 
@@ -77,9 +77,9 @@ Core priorities:
 
 ------------------------------------------------------------------------
 
-#  Performance Engineering 
+# Performance Engineering 
 
-##  Efficient Data Structures
+## Efficient Data Structures
 
 Telemetry history uses:
 
@@ -104,7 +104,7 @@ stable real-time performance.
 
 ------------------------------------------------------------------------
 
-##  MQTT Integration
+## MQTT Integration
 
 -   `paho-mqtt` client
 -   Background threaded loop
@@ -114,7 +114,7 @@ This architecture is scalable to real hardware telemetry systems.
 
 ------------------------------------------------------------------------
 
-##  Cached API Calls
+## Cached API Calls
 
 -   `@st.cache_data(ttl=300)` for weather
 -   Prevents rate-limiting
@@ -123,7 +123,7 @@ This architecture is scalable to real hardware telemetry systems.
 
 ------------------------------------------------------------------------
 
-##  Geospatial Visualization
+## Geospatial Visualization
 
 -   Folium-based dark themed map
 -   Dynamic color-coded markers
@@ -132,7 +132,7 @@ This architecture is scalable to real hardware telemetry systems.
 
 ------------------------------------------------------------------------
 
-#  Feature Modules
+# Feature Modules
 
 ## Overview
 
@@ -187,7 +187,7 @@ System introduction and navigation.
 
 ------------------------------------------------------------------------
 
-#  Setup Instructions
+# Setup Instructions
 
 ``` bash
 pip install streamlit pandas numpy requests folium streamlit-folium paho-mqtt python-dotenv streamlit-autorefresh
@@ -205,7 +205,7 @@ streamlit run app.py
 
 ------------------------------------------------------------------------
 
-#  Future Improvements
+# Future Improvements
 
 -   Database-backed logging
 -   Hashed authentication
@@ -229,9 +229,7 @@ This project demonstrates:
 -   Clean modular Python design
 
 ------------------------------------------------------------------------
+## Authentication Note
 
-##PS
-
--The user details were not added to the .env file to give access details to the tester
-
-Generated on: 2026-02-16 17:02:16
+User credentials are intentionally excluded from the repository for security reasons.  
+Test credentials can be shared separately if required.
