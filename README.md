@@ -69,7 +69,7 @@ Core priorities:
 
 ## Integration Layer
 
--   MQTT Broker (localhost)
+-   MQTT Broker (HiveMQ -broker.hivemq.com)
 -   OpenWeather API
 -   Useless Facts REST API
 -   CSV Logging
@@ -196,7 +196,15 @@ pip install streamlit pandas numpy requests folium streamlit-folium paho-mqtt py
 Create `.env`:
 
     api_key=YOUR_OPENWEATHER_API_KEY
+    
+# Running the MQTT Publisher
 
+To enable live telemetry in the MQTT Live Data panel, run the publisher in a separate terminal:
+```bash
+python scripts/mqtt_publisher.py
+```
+
+Keep it running alongside the Streamlit app. The dashboard will automatically receive and display pod data every 2 seconds.
 Run:
 
 ``` bash
@@ -208,7 +216,7 @@ streamlit run app.py
 # Future Improvements
 
 -   Database-backed logging
--   Hashed authentication
+-   Multi factor authentication
 -   Async MQTT architecture
 -   Predictive failure analytics
 -   Deployment containerization
@@ -229,7 +237,4 @@ This project demonstrates:
 -   Clean modular Python design
 
 ------------------------------------------------------------------------
-## Authentication Note
 
-For demonstration purposes and ease of testing the source code , user credentials are currently defined directly within the application code.
-In a production deployment, credentials would be securely stored using environment variables and hashed authentication mechanisms.
