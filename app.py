@@ -31,7 +31,7 @@ USERS = {
 }
 
 ROLE_PAGES = {
-    "Viewer":     ["Overview", "Pod Tracker", "Weather Monitoring",
+    "Viewer": ["Overview", "Pod Tracker", "Weather Monitoring",
                    "Live Track Map", "Did You Know", "MQTT Live Data"],
     "Controller": ["Overview", "Pod Tracker", "Performance Metrics",
                    "Weather Monitoring", "Pod Comparison", "Live Track Map",
@@ -96,7 +96,7 @@ def log_metrics():
 
 
 def require_role(page_name):
-    role          = st.session_state.get("role", "Viewer")
+    role = st.session_state.get("role", "Viewer")
     allowed_pages = ROLE_PAGES.get(role, [])
     if page_name not in allowed_pages:
         st.markdown(
@@ -111,14 +111,14 @@ def require_role(page_name):
 
 @st.cache_data(ttl=300)
 def fetch_weather(city, api_key):
-    url      = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     response = requests.get(url)
     return response.json() if response.status_code == 200 else None
 
 
 @st.cache_data(ttl=60)
 def get_pod_data(city, api_key):
-    url      = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     response = requests.get(url)
     if response.status_code != 200:
         return None
@@ -785,3 +785,4 @@ elif section == "MQTT Live Data":
                     pass
     else:
         st.warning("Waiting for incoming MQTT telemetry data...")
+
