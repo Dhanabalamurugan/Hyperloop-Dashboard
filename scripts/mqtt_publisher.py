@@ -3,11 +3,16 @@ import json
 import time
 import random
 
+def on_connect(client, userdata, flags, rc):
+    if rc == 0:
+        print("✅ Connected to broker.hivemq.com successfully")
+    else:
+        print(f"❌ Connection failed with code {rc}")
+        
 client = mqtt.Client()
+client.on_connect = on_connect
 client.connect("broker.hivemq.com", 1883, 60)
-
-print("Publisher connected...")
-
+client.loop_start()
 print("Publishing Hyperloop Pod Data...\n")
 
 while True:
@@ -17,20 +22,10 @@ while True:
         "battery": random.randint(20, 100),
         "status": random.choice(["Operational", "Maintenance", "Docked"])
     }
-
     client.publish("hyperloop/pods/demo", json.dumps(pod_data))
     print("Published:", pod_data)
-
     time.sleep(2)
 
-def on_connect(client, userdata, flags, rc):
-    if rc == 0:
-        print("✅ Connected to broker.hivemq.com successfully")
-    else:
-        print(f"❌ Connection failed with code {rc}")
 
-client = mqtt.Client()
-client.on_connect = on_connect
-client.connect("broker.hivemq.com", 1883, 60)
-client.loop_start()
+
 
